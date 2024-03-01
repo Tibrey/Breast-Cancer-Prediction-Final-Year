@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{url_for('static',filename='css/image.css')}}" />
+
+    <!-- box icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="{{url_for('static',filename='image.js')}}"></script>
+</head>
+
+<body>
+
+    {% extends "index.html" %} {% block section %}
+    <form action="/image" method="post" id="image-form" enctype="multipart/form-data">
+        <div class="hero">
+            <label for="input-file" id="drop-area">
+                <input type="file" accept="image/*" id="input-file" name="file" hidden />
+                <div id="img-view">
+                    <i class="bx bx-upload" id="upload"></i>
+                    <p>Drag and drop or click <br />to upload image</p>
+                    <span>upload images from the desktop</span>
+                </div>
+    
+                <button type="submit" id="image-process" value="submit">
+                    process
+                </button>
+            </label>
+    
+            <p class="final-pred">Result after processing: {{ prediction }}</p>
+    
+           
+    
+        </div>
+        <div class="img_output">
+            {% if img_base64 %}
+            <img src="data:image/png;base64,{{ img_base64 }}" alt="Probability Graph" />
+            
+            <!-- Display probability values -->
+            <p>The prediction probability are: </p>
+            <ul>
+                {% for label, probability in prob_dict.items() %}
+                <li>{{ label }}: {{ (probability * 100)|round(2) }}%</li>
+                {% endfor %}
+            </ul>
+            
+            {% endif %}
+        </div>
+        
+    </form>
+    
+    <div class="footer">
+        <div>
+            <h2>Final Year Project</h2>
+            <h3>Breast Cancer Prediction</h3>
+            <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo"
+                    class="logo" /></a>
+        </div>
+    </div>
+
+    {% endblock %}
+</body>
+
+
+</html>
+

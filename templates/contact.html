@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{url_for('static',filename='css/contact.css')}}" />
+    <title>Contact</title>
+</head>
+
+<body>
+    {% extends "index.html" %} {% block title %}Contact{% endblock %} {% block
+    section %}
+    <!-- Include navigation specific to the prediction page if needed -->
+    <!-- If you want to keep the same navigation as in base.html, you can skip this block -->
+
+    <h1>People Involved To Develop The System</h1>
+    <div class="contactImages">
+        <div class="images">
+            <img src="../static/images/tibra.jpg" alt="" />
+            <p>Tibra Shrestha</p>
+        </div>
+
+        <div class="images">
+            <img src="../static/images/aadarsha.jpg" alt="" />
+            <p>Aadarsha Sapkota</p>
+        </div>
+
+        <div class="images">
+            <img src="../static/images/akash.jpg" alt="" />
+            <p>Akash Thapa Magar</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div>
+            <h2>Final Year Project</h2>
+            <h3>Breast Cancer Prediction</h3>
+            <a href="{{url_for('index')}}"><img src="../static/images/logo.png" alt="logo" class="logo" /></a>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

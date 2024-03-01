@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Predict</title>
+    <link rel="stylesheet" href="../static/css/predict.css" />
+  </head>
+  <body>
+    {% extends "index.html" %} {% block title %}Predict{% endblock %} {% block
+    section %}
+    <!-- Include navigation specific to the prediction page if needed -->
+    <!-- If you want to keep the same navigation as in base.html, you can skip this block -->
+
+    <form class="form" action="/predict">
+      <p class="title">Breast Cancer prediction</p>
+      <p class="message">Predict and know the risks</p>
+
+      <div class="flex">
+        <label>
+          <input class="input" type="text" placeholder="Range(1-2)" required="" name = "texture_mean"/>
+          <span>Texture Mean</span>
+        </label>
+
+        <label>
+          <input class="input" type="text" placeholder="" required="" name = "area_mean"/>
+          <span>Area Mean</span>
+        </label>
+
+        <label>
+          <input class="input" type="text" placeholder="" required="" name = "concavity_mean"/>
+          <span>Concavity Mean</span>
+        </label>
+
+        <label>
+          <input class="input" type="text" placeholder="" required="" name = "area_se"/>
+          <span>Area S.E.</span>
+        </label>
+        <label>
+          <input class="input" type="text" placeholder="" required="" name = "concavity_se"/>
+          <span>Concavity S.E.</span>
+        </label>
+
+        <label>
+          <input class="input" type="text" placeholder="" required="" name = "fractal_dimension_se"/>
+          <span>Fractal Dimension S.E.</span>
+        </label>
+
+        <label>
+          <input class="input" type="text" placeholder="" required="" name = "smoothness_se"/>
+          <span>Smoothness S.E.</span>
+        </label>
+
+        <label>
+          <input class="input" type="text" placeholder="" required="" name = "concavity_worst"/>
+          <span>Concavity Worst</span>
+        </label>
+
+        <label>
+          <input class="input" type="text" placeholder="" required="" name = "symmetry_worst"/>
+          <span>Symmetry Worst</span>
+        </label>
+        <label>
+          <input class="input" type="text" placeholder="" required="" name = "fractal_dimension_worst"/>
+          <span>Fractal Dimension Worst</span>
+        </label>
+      </div>
+
+      <button class="submit">Predict</button>
+    </form>
+
+    <div class="predict">
+      <p>The result for your Breast Cancer Prediction:</p>
+      <h2>{{ prediction }}</h2>
+    </div>
+    {% endblock %}`
+
+    <!-- <div class="inputGroup">
+      <input type="text" required="" autocomplete="off">
+      <label for="name">Name</label>
+  </div> -->
+
+    <script src="../static/predict.js"></script>
+  </body>
+</html>

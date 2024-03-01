@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{{url_for('static',filename='css/faq.css')}}" />
+
+  <!-- box icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+  <script type="text/javascript" src="{{url_for('static',filename='faq.js')}}"></script>
+</head>
+
+<body>
+  {% extends "index.html" %} {% block section %}
+
+  <div class="wrapper">
+    <h1>Breast Cancer</h1>
+    <p>The Frequently Asked Question</p>
+
+    <div class="faq">
+      <button class="accordion">
+        What is Breast cancer?
+        <i class="bx bx-chevron-down"></i>
+      </button>
+      <p class="paragraph">
+        Breast cancer is a type of cancer that forms in the cells of the
+        breast. It is one of the most common cancers affecting women
+        worldwide, although it can also occur in men. Breast cancer occurs
+        when abnormal cells in the breast grow uncontrollably, forming a
+        tumor. These cancerous cells can invade nearby tissues and spread to
+        other parts of the body through the bloodstream or lymphatic system.
+      </p>
+    </div>
+
+    <div class="faq">
+      <button class="accordion">
+        What features are commonly used in breast cancer prediction models
+        <i class="bx bx-chevron-down"></i>
+      </button>
+      <p class="paragraph">
+        This question focuses on the specific attributes or characteristics
+        (features) of the data that are commonly considered when building a
+        breast cancer prediction model. Common features include mean radius,
+        mean texture, mean smoothness, and other measurable characteristics.
+      </p>
+    </div>
+
+    <div class="faq">
+      <button class="accordion">
+        What machine learning algorithms are commonly used for breast cancer
+        prediction
+        <i class="bx bx-chevron-down"></i>
+      </button>
+      <p class="paragraph">
+        This question explores the choice of machine learning algorithms.
+        Commonly used algorithms include Support Vector Machines (SVM),
+        Logistic Regression, Decision Trees, Random Forest, and Neural
+        Networks. Each algorithm has its strengths and considerations.
+      </p>
+    </div>
+
+    <div class="faq">
+      <button class="accordion">
+        How do you evaluate the performance of breast cancer prediction model
+        <i class="bx bx-chevron-down"></i>
+      </button>
+      <p class="paragraph">
+        Evaluating model performance is crucial. Responses to this question
+        might include discussing metrics such as accuracy, precision, recall,
+        F1-score, and the area under the ROC curve. Additionally, discussing
+        the importance of domain-specific considerations is relevant.
+      </p>
+    </div>
+
+    <div class="faq">
+      <button class="accordion">
+        What are the key considerations when selecting a model for breast
+        cancer prediction
+        <i class="bx bx-chevron-down"></i>
+      </button>
+      <p class="paragraph">
+        This question explores the decision-making process in selecting a
+        model. Responses might touch on factors such as model accuracy,
+        interpretability, computational efficiency, scalability, and the
+        specific requirements of the healthcare application.
+      </p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>
+      <h2>Final Year Project</h2>
+      <h3>Breast Cancer Prediction</h3>
+      <a href="{{url_for('index')}}"><img src="../static/images/logo.png" alt="logo" class="logo" /></a>
+    </div>
+  </div>
+  {% endblock %}
+</body>
+
+</html>

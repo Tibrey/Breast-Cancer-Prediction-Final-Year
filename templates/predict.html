@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Predict</title>
+  <link rel="stylesheet" href="../static/css/predict.css" />
+
+  <script type="text/javascript" src="{{url_for('static',filename='predict.js')}}"></script>
+</head>
+
+<body>
+  {% extends "index.html" %} {% block title %}Predict{% endblock %} {% block
+  section %}
+
+  <!-- select model -->
+
+  <!-- <div class="method_selection">
+      <form id="predictForm" action="/predict" method="post">
+        <label for="model">Select a model to predict</label>
+        <div class="method_sel">
+          <select name="model" id="model" onchange="toggleForm()">
+            <option value="">Select Model</option>
+            <option value="Logistic regression">Logistic Regression</option>
+            <option value="SVM">Support Vector Machine</option>
+          </select>
+        </div>
+        <input type="submit" value="Submit" class="sub_model" />
+      </form> -->
+
+  <form class="form" action="/predict" method="post" onsubmit="return validateInputs()" id="featureForm">
+    <p class="title">Breast Cancer prediction</p>
+    <p class="message">Predict and know the risks</p>
+
+
+    <label>
+      <span>Select Model:</span>
+      <select name="model">
+
+        <option value="please select model">Please select model</option>
+        <option value="logistic">Logistic Regression</option>
+        <option value="svm">Support Vector Machine (SVM)</option>
+      </select>
+    </label>
+
+    <div class="flex">
+      <label id="labelFeature0">
+        <input class="input" type="text" id="feature0" placeholder="(6.981-28.1100)" required="" name="radius_mean" />
+        <span>Radius Mean</span>
+      </label>
+      <label id="labelFeature2">
+        <input class="input" type="text" id="feature2" placeholder="(43.790-188.5000)" required=""
+          name="perimeter_mean" />
+        <span>Perimeter Mean</span>
+      </label>
+      <label id="labelFeature3">
+        <input class="input" type="text" id="feature3" placeholder="(143.50-2501.00)" required="" name="area_mean" />
+        <span>Area Mean</span>
+      </label>
+      <label id="labelFeature7">
+        <input class="input" type="text" id="feature7" placeholder="(0.000-0.2012)" required=""
+          name="concave points_mean" />
+        <span>Concave Points Mean</span>
+      </label>
+      <label id="labelFeature15">
+        <input class="input" type="text" id="feature15" placeholder="(7.930-36.0400)" required="" name="radius_worst" />
+        <span>Radius Worst</span>
+      </label>
+      <label id="labelFeature17">
+        <input class="input" type="text" id="feature17" placeholder="(50.410-251.2000)" required=""
+          name="perimeter_worst" />
+        <span>Perimeter Worst</span>
+      </label>
+      <label id="labelFeature18">
+        <input class="input" type="text" id="feature18" placeholder="(185.200-4254.0000)" required=""
+          name="area_worst" />
+        <span>Area Worst</span>
+      </label>
+      <label id="labelFeature22">
+        <input class="input" type="text" id="feature22" placeholder="(0.000-0.2910)" required=""
+          name="concave points_worst" />
+        <span>Concave Points Worst</span>
+      </label>
+    </div>
+    <button class="submit" type="submit">Predict</button>
+  </form>
+  </div>
+
+  <!-- form filling -->
+
+  <div class="predict">
+    <p>The result for your Breast Cancer Prediction:</p>
+    <h2>{{ prediction }}</h2>
+    
+  </div>
+
+
+  <div class="footer">
+    <div>
+      <h2>Final Year Project</h2>
+      <h3>Breast Cancer Prediction</h3>
+      <a href="{{url_for('index')}}"><img src="../static/images/logo.png" alt="logo" class="logo" /></a>
+    </div>
+  </div>
+  {% endblock %}`
+</body>
+
+</html>

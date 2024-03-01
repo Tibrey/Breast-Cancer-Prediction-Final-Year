@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{{url_for('static',filename='css/data.css')}}" />
+</head>
+
+<body>
+  {% extends "index.html" %} {% block title %}Contact{% endblock %} {% block
+  section %}
+  <div class="data_container">
+    <div class="data_intro">
+      The system uses the dataset developed by the <b>Wisconsin Hospital</b>
+      for breast cancer research which is a significant and valuable approach
+      to understanding this present global issue in the field of health
+      sector.
+
+      <ol>
+        <li class="listheading"><b>Dataset Source and Collection</b>
+          <ul style="list-style-type: disc;" class="data_ul">
+            <li>Through an interactive image processing, the Wisconsin Hospital
+              has developed this dataset that contains the information about the
+              patient with cancerous tissues and non-cancerous tissues.</li>
+            <li>The healthcare professional use the Fine Needle Aspirate (FNA) to
+              collect sample from suspicious areas identified through the CT Scan or UltraSound.
+              FNA involves inserting a thin, hollow needle into the suspicious tissue to extract cells for
+              examination.
+            </li>
+          </ul>
+        </li>
+        <li class="listheading"><b>Pathological Analysis</b>
+          <ul style="list-style-type: disc;" class="data_ul">
+            <li>The obtained samples are sent for further analysis to pathologist
+              for detailed analysis under a microscope. They examine the cellular structures
+              to identify the abnormalities that may indicate the cancerous tissues.
+            </li>
+
+            <li>The goal of the analysis is to detect characteristics such as
+              shape , size and arrangement of cells nuclei which provide the valuable
+              insights of potential presence of malignancy.
+            </li>
+          </ul>
+        </li>
+        <li class="listheading"><b>Feature Computation</b>
+          <ul style="list-style-type: disc;" class="data_ul">
+            <li>The features are computed for each nucleus based on the
+              microscopic analysis. These features includes the textural
+              characteristics of cell nuclei.
+            </li>
+            <li>Example of computed features may include nucleus size, shape,texture and
+              other measurement that helps to characterize the cell abnormalities.
+            </li>
+          </ul>
+        </li>
+        <li class="listheading"><b>System Implementation</b>
+          <ul style="list-style-type: disc;" class="data_ul">
+            <li>Our system make use of those feature to develope a model
+              for breast cancer prediction.
+            </li>
+            <li>
+              Machine Learning techniques are employed to train the system
+              on the dataset enabling it to identify patterns and correlations
+              between the computed features and the presence or absence of breast cancer.
+            </li>
+          </ul>
+        </li>
+        <li class="listheading"><b>Significance of the System</b>
+          <ul style="list-style-type: disc;" class="data_ul">
+            <li>The developed system has the potential to assist for the early detection
+              of breast cancer by providing an accurate diagnosis with high accuracy.</li>
+        </li>
+        <li>Early detection is crucial for successful treatment and
+          improve patient outcomes. The automated system can aid in the quick
+          and accurate analysis of large datasets, providing valuable support to
+          healthcare professionals who need to monitor multiple patients at once.</li>
+        </li>
+        </ul>
+        </li>
+      </ol>
+    </div>
+
+    <hr class="horizontal">
+
+    <h2 style="text-align: center;margin-bottom:2%">Model Implemented </h2>
+    <div class="logistic">
+      This system is developed using the logistic regression. Logistic regression is widely used model in machine
+      learning for binary classification.
+      It models the probability that a given input belongs to a particular class. The logistic regression model function
+      is represented as:
+
+      <p>
+        <span>f</span>(
+        <span class="italic">w</span>,
+        <span class="italic">b</span>(
+        <span class="italic">x</span>
+        )
+        ) =
+        <span class="italic">g</span>(
+        <span class="italic">w</span> &middot;
+        <span class="italic">x</span> +
+        <span class="italic">b</span>
+        )
+      </p>
+
+      In this equation, fw,b(x) represents the predicted probability,w is the weight vector,bis the bias term, x is the
+      input feature vector, and g
+      (z) is the sigmoid function:
+      <p>
+        <span class="italic">g</span>(
+        <span class="italic">z</span>
+        ) =
+        <sup>1</sup>/<sub>1 + e<sup>-z</sup></sub>
+      </p>
+
+      <div class="obj">
+        <h2>Objective:</h2>
+        <p><strong>Goal:</strong> Find the optimal values for the parameters <code>(w, b)</code> that provide accurate
+          class probabilities.</p>
+
+        <h2>Forward Pass:</h2>
+        <p><strong>Computation:</strong> Compute the linear combination of input features <code>x</code> with the weight
+          vector <code>w</code> and the bias term <code>b</code>.</p>
+        <p><strong>Activation:</strong> Apply the sigmoid function to the result.</p>
+        <p><strong>Equation:</strong> <code>Z = x ⋅ w + b</code></p>
+        <p><strong>A = σ(Z)</strong></p>
+
+        <h2>Cost Function:</h2>
+        <p><strong>Measurement:</strong> Assess the error between predicted probabilities and true labels using binary
+          cross-entropy loss.</p>
+        <p><strong>Equation:</strong></p>
+
+        <pre class="code code2">J(w, b) = -1/m ∑[yi log(fw,b(xi)) + (1-yi) log(1-fw,b(xi))] </pre>
+
+        <pre class="code code1">J(w, b) = -1/m ∑[yi log(fw,b(xi))</pre>
+        <pre class="code code1">+ (1-yi) log(1-fw,b(xi))] </pre>
+        <p>where <code>m</code> is the number of samples, <code>yi</code> is the true label, and <code>fw,b(xi)</code>
+          is the predicted probability.</p>
+
+        <h2>Backward Pass (Gradient Computation):</h2>
+        <p><strong>Compute Gradients:</strong> Calculate the gradients of the cost function with respect to parameters
+          <code>(w, b)</code>.</p>
+        <p><strong>Equations:</strong></p>
+        <pre class="code">∂J/∂b = 1/m ∑(fw,b(xi) - yi)</pre>
+        <pre class="code">∂J/∂w = 1/m ∑(fw,b(xi) - yi)xi</pre>
+
+        <h2>Training Process:</h2>
+        <p><strong>Iterative Optimization:</strong> Update parameters <code>(w, b)</code> using an optimization
+          algorithm (e.g., gradient descent).</p>
+        <p><strong>Update Equations:</strong></p>
+        <pre class="code">w ← w - α ∂J/∂w</pre>
+        <pre class="code">b ← b - α ∂J/∂b</pre>
+        <p>where <code>α</code> is the learning rate.</p>
+
+        <h2>Iteration:</h2>
+        <p><strong>Repeat:</strong> Iterate through the training process, performing forward and backward passes, to
+          minimize the cost function.</p>
+
+      </div>
+
+    </div>
+
+    <hr class="horizontal">
+
+  </div>
+
+  <div class="footer">
+    <div>
+      <h2>Final Year Project</h2>
+      <h3>Breast Cancer Prediction</h3>
+      <a href="{{url_for('index')}}"><img src="../static/images/logo.png" alt="logo" class="logo" /></a>
+    </div>
+  </div>
+  {%endblock%}
+</body>
+
+</html>
